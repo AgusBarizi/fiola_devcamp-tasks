@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta author="Fiola-Team">
+    <link rel="shortcut icon" href="todo_icon.png">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+    <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                        <div class="card mt-5 mb-5">
+                            <div class="card-header">
+                                    <div class="card-title text-center"><h1>Todo App</h1></div>
+                                <div class="row">
+                                    <div class="col-4 count-label">
+                                        <span id="countTotal" class="font-weight-bold">0</span><br>Total  
+                                    </div>
+                                    <div class="col-4 count-label">
+                                        <span id="countRemaining" class="font-weight-bold">0</span><br>Remaining  
+                                    </div>
+                                    <div class="col-4 count-label">
+                                        <span id="countDone" class="font-weight-bold">0</span><br>Done  
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                
+                                <form id="todoForm">
+
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="inputTodo" class="form-control" placeholder="Write new task here">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="submit" id="button-submit">Add</button>
+                                        </div>
+                                    </div>
+                                    </form>
+                                    <!-- <table class="table">
+                                        <div class="tbody">
+                                            <tr>
+                                                <td style="width:50px;"><input type="checkbox"></td>
+                                                <td>Task 1</td>
+                                                <td class="text-right"><button type="button" class="btn btn-danger btn-xs">Delete</button></td>
+                                            </tr>
+                                        </div>
+                                    </table> -->
+                                    <!-- <ul id="todoList">
+                                    </ul> -->
+                                    <div id="todoList">
+
+                                    </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                Developed By Fiola-Team @ 2019
+                            </div>
+                        </div>
+                </div>
+            </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

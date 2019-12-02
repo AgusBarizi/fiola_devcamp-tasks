@@ -71,12 +71,16 @@ const todoForm = document.getElementById('todoForm')
 
 todoForm.addEventListener('submit', function(e){
     e.preventDefault();
-    todos.push({
-        title:e.target.elements.inputTodo.value,
-        completed:false,
-    })
-    renderTodos();
-    e.target.elements.inputTodo.value='';
+    if(e.target.elements.inputTodo.value.replace(/ /g,'')!=''){
+        todos.push({
+            title:e.target.elements.inputTodo.value,
+            completed:false,
+        })
+        renderTodos();
+        e.target.elements.inputTodo.value='';
+    }else{
+        alert('The task cannot be empty')
+    }
 })
 
 const setComplete = function(index, value){

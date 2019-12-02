@@ -53,6 +53,14 @@ const renderTodos = function () {
         document.querySelector('#todoList')
         .appendChild(generateTodo(todo, index));
     })
+    if(todos.length==0){
+        document.querySelector('#empty-content').style.display = "block"
+        document.querySelector('#button-reset').style.display = "none"
+        
+    }else{ 
+        document.querySelector('#empty-content').style.display = "none"
+        document.querySelector('#button-reset').style.display = "block"
+    }
     document.querySelector('#countTotal').textContent=todos.length||0;
     document.querySelector('#countRemaining').textContent=todos.filter(todo=>!todo.completed).length
     document.querySelector('#countDone').textContent=todos.filter(todo=>todo.completed).length
@@ -78,16 +86,21 @@ const setComplete = function(index, value){
 }
 
 const deleteItem = function(index){
-    todos.splice(index,1)
-    saveTodoToStorage()
-    renderTodos()
+    if(confirm('Do you want delete this data?')){
+        todos.splice(index,1)
+        saveTodoToStorage()
+        renderTodos()
+    }
 }
 
 document.querySelector('#button-reset').addEventListener('click', function(e){
     e.preventDefault()
-    todos = []
-    saveTodoToStorage()
-    renderTodos()
+    
+    if(confirm('Are you sure to delete all data?')){
+        todos = []
+        saveTodoToStorage()
+        renderTodos()
+    }
 })
 
 const saveTodoToStorage = function(){

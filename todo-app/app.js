@@ -63,7 +63,6 @@ const todoForm = document.getElementById('todoForm')
 
 todoForm.addEventListener('submit', function(e){
     e.preventDefault();
-    console.log('submitted');
     todos.push({
         title:e.target.elements.inputTodo.value,
         completed:false,
@@ -73,7 +72,6 @@ todoForm.addEventListener('submit', function(e){
 })
 
 const setComplete = function(index, value){
-    console.log(index, value);
     todos[index].completed = value
     saveTodoToStorage()
     renderTodos()
@@ -83,8 +81,14 @@ const deleteItem = function(index){
     todos.splice(index,1)
     saveTodoToStorage()
     renderTodos()
-    console.log(index);
 }
+
+document.querySelector('#button-reset').addEventListener('click', function(e){
+    e.preventDefault()
+    todos = []
+    saveTodoToStorage()
+    renderTodos()
+})
 
 const saveTodoToStorage = function(){
     localStorage.setItem('todos', JSON.stringify(todos))
